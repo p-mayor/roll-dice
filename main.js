@@ -1,4 +1,4 @@
-let count_arr = [0,0,0,0,0,0,0,0,0,0,0,0,0]
+let count_arr = [0,0,0,0,0,0,0,0,0,0,0]
 
 function rollDice() {
     let roll1 = Math.floor((Math.random() * 6) + 1);
@@ -11,7 +11,7 @@ function countRoll(numRolls) {
     let val = 0
     for(let i=0;i<numRolls;i++){
         val = rollDice()
-        count_arr[val]+=1
+        count_arr[val-2]+=1
     }
 }
 
@@ -19,7 +19,7 @@ function buildDOM() {
     let dest_graph = document.getElementById("graph")
     let dest_sum = document.getElementById("summary")
 
-    for(let i=2;i<=12;i++) {
+    for(let i=0;i<=10;i++) {
         let bar = document.createElement("div")
         bar.className = "bar"
         bar.style.width = count_arr[i]*3+"px"
@@ -27,14 +27,15 @@ function buildDOM() {
         bar.style.backgroundColor = "gray"
         bar.style.marginBottom = "1px"
 
-        let bar_text = document.createTextNode(i)
+        let bar_text = document.createTextNode(i+2)
         bar.appendChild(bar_text)
         dest_graph.appendChild(bar)
         
-        let sum_text = document.createTextNode(i + ':' + count_arr[i]+ ' ')
+        let sum_text = document.createTextNode(i+2 + ':' + count_arr[i]+ ' ')
         dest_sum.appendChild(sum_text)
     }
 }
 
 countRoll(1000)
+console.log(count_arr)
 buildDOM()
