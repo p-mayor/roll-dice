@@ -1,6 +1,10 @@
+//dictionary - refactored to use array instead - see commit history for implementation
 let count = {
     '2':0, '3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0
 }
+
+//array
+let count_arr = [0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 function rollDice() {
     let roll1 = Math.floor((Math.random() * 6) + 1);
@@ -13,7 +17,7 @@ function countRoll(numRolls) {
     let val = 0
     for(let i=0;i<numRolls;i++){
         val = rollDice()
-        count[val]+=1
+        count_arr[val]+=1
     }
 }
 
@@ -21,10 +25,10 @@ function buildDOM() {
     let dest_graph = document.getElementById("graph")
     let dest_sum = document.getElementById("summary")
 
-    for(i in count) {
+    for(let i=2;i<=12;i++) {
         let bar = document.createElement("div")
         bar.className = "bar"
-        bar.style.width = count[i]*3+"px"
+        bar.style.width = count_arr[i]*3+"px"
         bar.style.height = "20px"
         bar.style.backgroundColor = "gray"
         bar.style.marginBottom = "1px"
@@ -33,7 +37,7 @@ function buildDOM() {
         bar.appendChild(bar_text)
         dest_graph.appendChild(bar)
         
-        let sum_text = document.createTextNode(i + ':' + count[i]+ ' ')
+        let sum_text = document.createTextNode(i + ':' + count_arr[i]+ ' ')
         dest_sum.appendChild(sum_text)
     }
 }
