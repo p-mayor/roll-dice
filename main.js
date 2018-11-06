@@ -1,9 +1,3 @@
-//dictionary - refactored to use array instead - see commit history for implementation
-let count = {
-    '2':0, '3':0,'4':0,'5':0,'6':0,'7':0,'8':0,'9':0,'10':0,'11':0,'12':0
-}
-
-//array
 let count_arr = [0,0,0,0,0,0,0,0,0,0,0,0,0]
 
 function rollDice() {
