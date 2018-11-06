@@ -18,6 +18,7 @@ function countRoll(numRolls) {
 function buildDOM() {
     let dest_graph = document.getElementById("graph")
     let dest_sum = document.getElementById("summary")
+    //let sum_div = document.createElement("div")
 
     for(i in count) {
         let bar = document.createElement("div")
@@ -27,14 +28,14 @@ function buildDOM() {
         bar.style.backgroundColor = "gray"
         bar.style.marginBottom = "1px"
 
-        let sum_text = document.createTextNode(i + ':' + count[i]+ ' ')
-        summary.appendChild(sum_text)
-        
         let bar_text = document.createTextNode(i)
         bar.appendChild(bar_text)
         dest_graph.appendChild(bar)
+        
+        let sum_text = document.createTextNode(i + ':' + count[i]+ ' ')
+        dest_sum.appendChild(sum_text)
     }
-    dest_sum.appendChild(summary)
+    //dest_sum.appendChild(sum_div)
 }
 
 countRoll(1000)
