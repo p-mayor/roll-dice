@@ -24,7 +24,7 @@ function buildDOM() {
     for(i in count) {
         let bar = document.createElement("div")
         bar.className = "bar"
-        bar.style.width = count[i]+"px"
+        bar.style.width = count[i]*3+"px"
         bar.style.height = "20px"
         bar.style.backgroundColor = "gray"
         bar.style.marginBottom = "1px"
